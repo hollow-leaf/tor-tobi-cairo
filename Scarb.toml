@@ -1,0 +1,12 @@
+[package]
+name = "tobi_cairo"
+version = "0.1.0"
+
+[scripts]
+test = "protostar test"
+compile = "protostar build"
+# See more keys and their definitions at https://docs.swmansion.com/scarb/docs/reference/manifest
+
+[dependencies]
+alexandria_math = { git = "https://github.com/keep-starknet-strange/alexandria" }
+# foo = { path = "vendor/foo" }
