@@ -1,23 +1,26 @@
 import { HardhatUserConfig } from 'hardhat/types'
 import '@shardlabs/starknet-hardhat-plugin'
-import * as dotenv from 'dotenv'
-dotenv.config()
+import { config as dotenvConfig } from 'dotenv'
+import { resolve } from 'path'
+dotenvConfig({ path: resolve(__dirname, './.env') })
 
 const config: HardhatUserConfig = {
   starknet: {
     dockerizedVersion: '0.11.0.2',
     recompile: false,
-    network: 'integrated-devnet',
+    network: 'devnet',
     wallets: {
       OpenZeppelin: {
         accountName: 'OpenZeppelin',
-        modulePath:
-          'starkware.starknet.wallets.open_zeppelin.OpenZeppelinAccount',
+        modulePath: 'starkware.starknet.wallets.open_zeppelin.OpenZeppelinAccount',
         accountPath: '~/.starknet_accounts',
       },
     },
   },
   networks: {
+    alphaGoerli: {
+      url: 'https://alpha4.starknet.io',
+    },
     devnet: {
       url: 'http://127.0.0.1:5050',
     },
@@ -29,8 +32,11 @@ const config: HardhatUserConfig = {
     },
     integratedDevnet: {
       url: 'http://127.0.0.1:5050',
-      // venv: 'active',
-      // dockerizedVersion: '<DEVNET_VERSION>',
+      dockerizedVersion: '0.5.3',
+      args: [
+        '--seed',
+        '42',
+      ],
     },
     hardhat: {},
   },

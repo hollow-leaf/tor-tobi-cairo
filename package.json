@@ -4,6 +4,8 @@
   "description": "Hardhat-based template for developing starknet smart contract.",
   "main": "index.js",
   "scripts": {
+    "network": "make network",
+    "clean": "rm -rf ./cache ./starknet-artifacts",
     "compile": "hardhat starknet-compile",
     "deploy": "hardhat starknet-deploy",
     "eslint": "eslint -c .eslintrc \"./**/*.ts\"",
@@ -13,12 +15,16 @@
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
     "@shardlabs/starknet-hardhat-plugin": "^0.8.0-alpha.2",
     "dotenv": "^16.1.4",
     "ericlint": "^1.1.12",
     "ethers": "^5.7.2",
-    "hardhat": "^2.15.0",
+    "hardhat": "^2.14.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "axios": "^1.0.0"
   }
 }
