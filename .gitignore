@@ -12,3 +12,6 @@ __pycache__
 
 #Starknet plugin
 starknet-artifacts
+
+#Address
+scripts/address/*

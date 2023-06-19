@@ -2,7 +2,11 @@ import { HardhatUserConfig } from 'hardhat/types'
 import '@shardlabs/starknet-hardhat-plugin'
 import { config as dotenvConfig } from 'dotenv'
 import { resolve } from 'path'
+import { loadTasks } from './scripts/helpers/hardhatConfigHelpers'
 dotenvConfig({ path: resolve(__dirname, './.env') })
+
+const taskFolder = ['tasks']
+loadTasks(taskFolder)
 
 const config: HardhatUserConfig = {
   starknet: {

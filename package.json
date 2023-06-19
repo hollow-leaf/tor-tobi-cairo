@@ -6,8 +6,11 @@
   "scripts": {
     "network": "make network",
     "clean": "rm -rf ./cache ./starknet-artifacts",
-    "compile": "hardhat starknet-compile",
-    "deploy": "hardhat starknet-deploy",
+    "compile": "hardhat compile:cairo",
+    "compile1": "hardhat compile:cairo1",
+    "deploy": "hardhat deploy:cairo",
+    "deploy1": "hardhat deploy:cairo1",
+    "account": "hardhat account:new",
     "eslint": "eslint -c .eslintrc \"./**/*.ts\"",
     "eslint:fix": "eslint --fix \"./**/*.ts\"",
     "test": "echo \"Error: no test specified\" && exit 1"
