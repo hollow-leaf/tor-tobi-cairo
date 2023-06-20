@@ -7,6 +7,11 @@ from starkware.cairo.common.cairo_builtins import HashBuiltin
 func balance() -> (res: felt) {
 }
 
+@event
+func increase_balance_called(
+    current_balance: felt, amount: felt
+) {
+}
 // Increases the balance by the given amount.
 @external
 func increase_balance{
@@ -16,6 +21,7 @@ func increase_balance{
 }(amount: felt) {
     let (res) = balance.read();
     balance.write(res + amount);
+    increase_balance_called.emit(current_balance=res, amount=amount);
     return ();
 }
 

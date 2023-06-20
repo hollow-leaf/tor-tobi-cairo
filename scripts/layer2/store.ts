@@ -22,8 +22,9 @@ async function main () {
   console.log(`address: ${devnetBalanceAddress.main}`)
   const { abi: testAbi } = await wallet.getClassAt(`${devnetBalanceAddress.main}`)
   if (testAbi === undefined) { throw new Error('no abi.') }
-  const myTestContract = new Contract(testAbi, devnetBalanceAddress.main, provider)
+  const myTestContract = new Contract(testAbi, devnetBalanceAddress.main, wallet)
 
+  const bal0 = await myTestContract.invoke('increase_balance', [10])
   const bal1 = await myTestContract.call('get_balance')
   console.log('Initial balance =', bal1.res.toString())
 }
