@@ -10,9 +10,9 @@ loadTasks(taskFolder)
 
 const config: HardhatUserConfig = {
   starknet: {
-    dockerizedVersion: '0.11.0.2',
+    dockerizedVersion: '0.11.1',
     recompile: false,
-    network: 'devnet',
+    network: 'madara',
     wallets: {
       OpenZeppelin: {
         accountName: 'OpenZeppelin',
@@ -30,6 +30,9 @@ const config: HardhatUserConfig = {
     },
     madara: {
       url: 'http://127.0.0.1:9944',
+    },
+    sharingan: {
+      url: 'https://sharingan.starknet.io',
     },
     integration: {
       url: 'https://external.integration.starknet.io',

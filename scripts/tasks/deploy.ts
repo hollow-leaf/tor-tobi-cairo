@@ -31,9 +31,13 @@ task('deploy:cairo', 'Deploy Cairo0 Contract')
       )
     }
     const contractFactory = await hre.starknet.getContractFactory(`contracts/cairo0/${contract}.cairo`)
-    await account.declare(contractFactory)
+    console.log(contractFactory)
+
+    const classHash = await account.declare(contractFactory)
+    console.log('classHash', classHash)
     // constucter add here
     const contractDeployInfo = await account.deploy(contractFactory)
+    console.log('deploy', contractDeployInfo)
     console.log(`${contract} deployed to: ${contractDeployInfo.address}`)
     const addressData = JSON.stringify({ main: contractDeployInfo.address })
     writeFileSync(`scripts/address/${hre.starknet.network}/`, `${contract}.json`, addressData)
@@ -59,9 +63,10 @@ task('deploy:cairo1', 'Deploy Cairo1 Contract')
     }
     const contractFactory = await hre.starknet.getContractFactory(`contracts/cairo1/${contract}.cairo`)
     await account.declare(contractFactory)
+
     // constucter add here
     const contractDeployInfo = await account.deploy(contractFactory, {
-      initial_balance: 0,
+      initial_balance: 1,
     })
     console.log(`${contract} deployed to: ${contractDeployInfo.address}`)
     const addressData = JSON.stringify({ main: contractDeployInfo.address })
