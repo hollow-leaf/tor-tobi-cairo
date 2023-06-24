@@ -1,0 +1,12 @@
+{
+  "WETH": {
+    "address": "0x1d2e542ee7e1171efb282906c0daaec4c5927613db5d21cf99de410ee848373",
+    "tx": "0x2487ef3c827e7ef3bdeb0f29fa712b2279084fe01cb9806a7cd4cecc8df6d67",
+    "artifact": "build/ERC20.json"
+  },
+  "Balance": {
+    "address": "0x5eba281d6acd3e001f2bcc7658faa9a0405e0d0b9e6588fa39a1c8c4fcf99d6",
+    "tx": "0x1822110af66c964a976fb0089592dba98da1e828c91b2ec5e6a849959899233",
+    "artifact": "build/balance.json"
+  }
+}
