@@ -17,7 +17,7 @@ func hash_chain{hash_ptr: HashBuiltin*}(data_ptr: felt*, length: felt) -> (resul
     }
 }
 
-func main{pedersen_ptr: HashBuiltin*}() {
+func main{pedersen_ptr: HashBuiltin*}(path: felt*) {
     alloc_locals;
     // Allocate a new array.
     let (local data_ptr: felt*) = alloc();

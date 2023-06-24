@@ -12,7 +12,7 @@ const config: HardhatUserConfig = {
   starknet: {
     dockerizedVersion: '0.11.1',
     recompile: false,
-    network: 'devnet',
+    network: 'madara',
     wallets: {
       OpenZeppelin: {
         accountName: 'OpenZeppelin',
@@ -32,7 +32,7 @@ const config: HardhatUserConfig = {
       url: 'http://127.0.0.1:9944',
     },
     sharingan: {
-      url: 'https://sharingan.starknet.io',
+      url: 'https://sharingan.madara.wtf/',
     },
     integration: {
       url: 'https://external.integration.starknet.io',
