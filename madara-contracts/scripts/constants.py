@@ -15,8 +15,8 @@ ETH_TOKEN_ADDRESS = 0x49D36570D4E46F48E99674BD3FCC84644DDD6B96F7C741B1562B82F9E0
 NETWORKS = {
     "sharingan": {
         "name": "sharingan",
-        "explorer_url": "",
-        "rpc_url": os.getenv("SHARINGAN_RPC_URL"),
+        "explorer_url": "https://starknet-madara.netlify.app/?rpc=wss%3A%2F%2Fsharingan.madara.wtf/#/explorer",
+        "rpc_url": "https://sharingan.madara.wtf",
     },
     "madara": {
         "name": "madara",
