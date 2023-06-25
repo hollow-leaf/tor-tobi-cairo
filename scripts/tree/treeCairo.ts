@@ -1,7 +1,9 @@
 import { Account, Contract, ec, Provider } from 'starknet'
+import * as starknet from 'starknet'
 import { devnetTreeAddress } from '../config'
 import { config as dotenvConfig } from 'dotenv'
 import { resolve } from 'path'
+import readline from 'readline'
 dotenvConfig({ path: resolve(__dirname, '../../.env') })
 
 export const DEPLOYACCT_ADDRESS = ensureEnvVar('DEPLOYACCT_ADDRESS')
@@ -23,10 +25,19 @@ async function main () {
   const { abi: testAbi } = await wallet.getClassAt(`${devnetTreeAddress.main}`)
   if (testAbi === undefined) { throw new Error('no abi.') }
   const myTestContract = new Contract(testAbi, devnetTreeAddress.main, wallet)
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  })
 
-  const bal0 = await myTestContract.invoke('tree', [10, 10])
-  const root = await myTestContract.call('get_root')
-  console.log('Tree Root = ', root.res.toString())
+  rl.question('What is your transaction:', (transaction) => {
+    rl.question('What is your amount:', async (amount) => {
+      const tx = starknet.number.hexToDecimalString(transaction)
+      await myTestContract.invoke('tree', [tx, amount])
+      const root = await myTestContract.call('get_root')
+      console.log('Proof = ', root.res.toString())
+    })
+  })
 }
 
 main().catch((error) => {
