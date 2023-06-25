@@ -72,6 +72,7 @@ DEPLOYMENTS_DIR = Path("deployments") / NETWORK["name"]
 DEPLOYMENTS_DIR.mkdir(exist_ok=True, parents=True)
 
 COMPILED_CONTRACTS = [
+    {"contract_name": "tree", "is_account_contract": False},
     {"contract_name": "ERC20", "is_account_contract": False},
     {"contract_name": "balance", "is_account_contract": False},
     {"contract_name": "OpenzeppelinAccount", "is_account_contract": True},

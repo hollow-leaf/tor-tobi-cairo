@@ -12,7 +12,7 @@ const config: HardhatUserConfig = {
   starknet: {
     dockerizedVersion: '0.11.1',
     recompile: false,
-    network: 'madara',
+    network: 'devnet',
     wallets: {
       OpenZeppelin: {
         accountName: 'OpenZeppelin',
